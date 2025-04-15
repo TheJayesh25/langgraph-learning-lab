@@ -17,6 +17,9 @@ langgraph-learning-lab
 │   ├── graph_1_hello_world.py
 │   ├── graph_2_state_mutation.py
 │   └── graph_3_sequential_nodes.py
+│
+├── utils
+│   └── helpers.py
 ```
 
 ---
