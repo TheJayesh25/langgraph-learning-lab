@@ -10,3 +10,8 @@ class AgentState(TypedDict):
     messages: List[HumanMessage]
 
 llm = ChatOpenAI(model="gpt-4o")
+
+def process(state: AgentState) -> AgentState:
+    response = llm.invoke(state["messages"])
+    print(f"\nAI: {response.content}")
+    return state
