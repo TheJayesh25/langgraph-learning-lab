@@ -22,7 +22,7 @@ graph.add_edge(START, "process")
 graph.add_edge("process", END) 
 agent = graph.compile()
 
-### SINGLE Node workflow
-
-user_input = input("Enter: ")
-agent.invoke({"messages": [HumanMessage(content=user_input)]})
+user_input = input("User: ")
+while user_input != "exit":
+    agent.invoke({"messages": [HumanMessage(content=user_input)]})
+    user_input = input("User: ")
