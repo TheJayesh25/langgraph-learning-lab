@@ -38,3 +38,11 @@ if 'logging.txt' in os.listdir():
             conversation_history.append(AIMessage(content = line[5:].strip()))
 
     file.close()
+
+user_input = input("Enter: ")
+while user_input.lower() != "exit":
+    conversation_history.append(HumanMessage(content=user_input))
+    result = agent.invoke({"messages": conversation_history})
+    print(result['messages'])
+    conversation_history = result['messages']
+    user_input = input("Enter: ")
