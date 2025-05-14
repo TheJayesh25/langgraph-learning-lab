@@ -26,3 +26,15 @@ graph.add_edge("process", END)
 agent = graph.compile()
 
 conversation_history = []
+
+if 'logging.txt' in os.listdir():
+    file = open('logging.txt','r',encoding='utf-8')
+    lines =  file.readlines()
+    for line in lines:
+        if line.split(':')[0] == 'You':
+            conversation_history.append(HumanMessage(content = line[5:].strip()))
+        
+        if line.split(':')[0] == 'AI':
+            conversation_history.append(AIMessage(content = line[5:].strip()))
+
+    file.close()
