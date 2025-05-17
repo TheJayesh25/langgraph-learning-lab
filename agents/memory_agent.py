@@ -46,3 +46,14 @@ while user_input.lower() != "exit":
     print(result['messages'])
     conversation_history = result['messages']
     user_input = input("Enter: ")
+
+
+with open('logging.txt','w',encoding='utf-8') as file:
+    for message in conversation_history:
+        if isinstance(message,HumanMessage):
+            file.write(f'You: {message.content}\n')
+        if isinstance(message,AIMessage):
+            file.write(f'AI: {message.content}\n')
+    file.write('End of Conversation')
+
+print('Conversation saved to logging.txt')
