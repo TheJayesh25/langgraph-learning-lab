@@ -5,13 +5,15 @@ from typing import TypedDict, List, Union
 from dotenv import load_dotenv
 import os
 
-load_dotenv()  
+load_dotenv()  # Loads your .env file
 
 class AgentState(TypedDict):
     messages: List[Union[HumanMessage, AIMessage]]
 
+# Initialize the LLM
 llm = ChatOpenAI(model="gpt-4o")
 
+# Define a single node that processes input and returns output
 def process(state: AgentState) -> AgentState:
     """This node will solve the request you input"""
     response = llm.invoke(state["messages"])
@@ -19,6 +21,7 @@ def process(state: AgentState) -> AgentState:
     print(f"\nAI: {response.content}")
     return state
 
+# Construct a simple LangGraph with one node
 graph = StateGraph(AgentState)
 graph.add_node("process", process)
 graph.add_edge(START, "process")
