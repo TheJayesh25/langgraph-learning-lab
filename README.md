@@ -18,6 +18,15 @@ langgraph-learning-lab
 │   ├── graph_2_state_mutation.py
 │   └── graph_3_sequential_nodes.py
 │
+├── control_flow
+│   ├── graph_4_conditional_edges.py
+│   └── graph_5_loop_counter.py
+│
+├── agents
+│   ├── simple_agent.py
+│   ├── memory_agent.py
+│   └── react_style_agent.py
+│
 ├── utils
 │   └── helpers.py
 ```
