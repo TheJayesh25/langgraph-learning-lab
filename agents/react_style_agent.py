@@ -60,3 +60,16 @@ graph.add_edge("tools", "Agent")
 
 app = graph.compile()
 
+# Conversational Loop (Replaces stream)
+messages = []
+user_input = input("🧑 Human: ")
+while user_input.lower() != "exit":
+    messages.append(HumanMessage(content=user_input))
+    result = app.invoke({"messages": messages})
+    messages = result["messages"]
+
+    for msg in messages:
+        if isinstance(msg, AIMessage) and msg.content.strip():
+            print(f"\n🤖 AI: {msg.content}\n")
+
+    user_input = input("🧑 Human: ")
