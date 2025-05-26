@@ -32,7 +32,7 @@ tools = [add, subtract, multiply]
 model = ChatOpenAI(model="gpt-4o").bind_tools(tools)
 
 def model_call(state: AgentState) -> AgentState:
-    system_prompt = SystemMessage(content="You are my AI assistant. Please answer the query using tools when necessary.")
+    system_prompt = SystemMessage(content="You are an AI assistant that can answer queries using the tools provided. You utilize the tools as per the use case by comparing the use case to the docstring of the tool being considered to be used by you.")
     response = model.invoke([system_prompt] + state["messages"])
     state["messages"].append(response)
     return {"messages": state["messages"]}
