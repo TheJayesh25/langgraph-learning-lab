@@ -27,17 +27,26 @@ langgraph-learning-lab
 │   ├── memory_agent.py
 │   └── react_style_agent.py
 │
-├── utils
-│   └── helpers.py
+└── utils
+    └── helpers.py
+
 ```
 
 ---
 
 ## Experiments include:
-• basic state graphs
-• sequential node execution
-• conditional routing
-• looped workflows
-• simple LLM agents
-• agents with memory
-• tool-using ReAct-style agents
+• Basics
+- State graphs exploring basic implementation 
+- State mutation
+- sequential node execution
+
+
+• Control Flow
+- Exploring conditional edges &
+- looped workflows
+
+
+• Agents 
+- Simple LLM Agents and implementation using LangGraph
+- agents with memory, utilization, preserving conversations by logging them and reusing next time, etc.
+- tool-using ReAct-style agents
